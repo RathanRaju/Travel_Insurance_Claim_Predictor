@@ -1,1 +1,21 @@
 # Travel_Insurance_Claim_Predictor
+
+### Comparative Study
+
+This is a binary classification problem where we are required to use Decision Tree classifier and at least two more ML techniques to predict if the insured will file a claim or not. CE802_P2_Data consists of 15 features from F1 to F15 and a target feature called Class. Class variable is a Boolean type which tells us that if it is “True”, then the customer has filed for a claim else it is “False” which is dependent of all these features from F1 to F15. This Dataset consists of 1500 records of customers. There are null values present in the feature F15 which needs to be replaced by the mean of that column. This can be done using pandas fillna() method which converts the null values into non-null values using the specified method. Then, we need to convert categorical variables into numerical ones. Here, we have class variable as categorical variable which needs to be converted into numerical variable. This can be done using pandas replace() method which converts True or False into 1’s and 0’s. 
+
+When evaluating the correlation between all the features, the “corr()” method includes the correlation of each feature with itself, which is always 1, so that is why this type of graph always has the red diagonal from the upper left to the lower right. Other than the diagonal, the rest of the squares show correlation between different features.
+After exploring the data and replacing the null values in our train data, we need to apply the same technique to our test data as well. We need to analyse and replace all the null values like we did in our train dataset.
+Now, our train data is ready for model training. We are required to analyse the performance of the three machine learning models. We are taking Decision Tree Classifier, Random Forest Classifier, and Logistic Regression. Out of these three models, Random Forest Classifier model performs best in-terms of learning score and cross validation score as shown below
+
+For Random Forest Classifier model, we need to tune hyper parameters to get good performance of our model. So, after the hyper parameter tuning, the Random Forest Classifier would give an accuracy of around 86%. Then, the next thing would be to predict the target variable in test dataset using the Random Forest Classifier with the hyper parameters from GridSearch CV method. After predicting the results, we need to save the predicted values to our test dataset and export the new version of the file CE802_P2_Test.csv. 
+
+### Additional Comparative Study
+
+This is a regression problem where we are required to use Linear Regression and at least two more ML technique to predict the value of the claim. CE802_P3_Data consists of 17 features from F1 to F16 and a target feature called “Target”. The “Target” variable tells us about the value of the claim which is dependent on all these features from F1 to F16. We need to then identify the categorical variables in our dataset. In our dataset, F1 and F10 are categorical variables which we need to convert that into numerical variables. This can be done by using a library called label encoder from sklearn. F1 contains data related to countries such as UK, USA, Europe and Rest. F10 contains categories like Very Low, Low, Medium, High, and Very High. 
+
+After exploring the data and converting categorical variables into numerical variables in our train data, we need to apply the same to our test data as well. 
+Now, our train data is ready for model training. We are required to analyse the performance of the three regression models. We are taking Linear Regression, Lasso Regression, and Ridge Regression Regressor. Out of these three regression models, Linear Regression performs the best in-terms of R2 score and Root Mean Squared Error
+
+If we observe all the three models in the above plot, we can clearly say that we can chose Linear Regression model for predicting future value of the claim for our final model. 
+Then, the next thing would be to predict the target variable in test dataset using the Linear Regression. After predicting the target values, we need to save the predicted target values to our test dataset and export the new version of the file CE802_P3_Test.csv. 
